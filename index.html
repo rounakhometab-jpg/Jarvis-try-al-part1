@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06111c">
+  <title>J.A.R.V.I.S. | AI Command Center</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard">
+        <span class="brand-icon">J</span>
+        <span><b>J.A.R.V.I.S.</b><small>PERSONAL AI SYSTEM</small></span>
+      </a>
+
+      <p class="side-label">COMMAND CENTER</p>
+      <a class="nav-item active" href="#dashboard">◈ Dashboard</a>
+      <a class="nav-item" href="#assistant">◎ AI Assistant</a>
+      <a class="nav-item" href="#capabilities">⌘ AI Capabilities</a>
+
+      <div class="sidebar-bottom">
+        <span class="pulse-dot"></span>
+        <span id="systemStatus">INITIALIZING</span>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">PERSONAL INTELLIGENCE INTERFACE</p>
+          <h1>Welcome back, <span>Commander.</span></h1>
+          <p class="muted">Your AI command center is ready.</p>
+        </div>
+        <div class="system-pill">
+          <span class="pulse-dot"></span>
+          <span id="aiStatus">CONNECTING</span>
+        </div>
+      </header>
+
+      <section class="hero panel">
+        <div class="hero-copy">
+          <p class="eyebrow">ARTIFICIAL INTELLIGENCE</p>
+          <h2>Intelligence.<br>At your command.</h2>
+          <p class="muted">
+            Ask questions, solve problems, write code,
+            translate languages and plan your next move.
+          </p>
+          <button class="primary-button" id="startChat">
+            Start Conversation ↗
+          </button>
+        </div>
+        <div class="reactor-wrap" aria-label="Animated JARVIS core">
+          <div class="reactor outer"></div>
+          <div class="reactor middle"></div>
+          <div class="reactor inner">J</div>
+          <small>NEURAL CORE</small>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card panel">
+          <span class="stat-icon">◈</span>
+          <p>AI ENGINE</p>
+          <h3 id="engineStatus">Checking...</h3>
+          <small>Server-side AI connection</small>
+        </article>
+        <article class="stat-card panel">
+          <span class="stat-icon">◎</span>
+          <p>LANGUAGE</p>
+          <h3 id="languageStatus">Multilingual</h3>
+          <small>Hindi · English · Hinglish</small>
+        </article>
+        <article class="stat-card panel">
+          <span class="stat-icon">⌘</span>
+          <p>AI CAPABILITIES</p>
+          <h3>30 Features</h3>
+          <small>Available through AI prompts</small>
+        </article>
+      </section>
+
+      <section class="section" id="capabilities">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">INTELLIGENCE MODULES</p>
+            <h2>Choose an AI capability</h2>
+          </div>
+        </div>
+
+        <div class="capability-grid">
+          <button class="capability panel" data-mode="conversation">
+            <span>◉</span><b>AI Conversation</b>
+            <small>Context and follow-ups</small>
+          </button>
+          <button class="capability panel" data-mode="reasoning">
+            <span>⌘</span><b>Reasoning & Planning</b>
+            <small>Break down complex tasks</small>
+          </button>
+          <button class="capability panel" data-mode="coding">
+            <span>〈/〉</span><b>Coding Assistant</b>
+            <small>Code, debug and explain</small>
+          </button>
+          <button class="capability panel" data-mode="math">
+            <span>∑</span><b>Math Solver</b>
+            <small>Explain solutions step by step</small>
+          </button>
+          <button class="capability panel" data-mode="translation">
+            <span>文</span><b>Translation</b>
+            <small>Hindi, English and more</small>
+          </button>
+          <button class="capability panel" data-mode="writing">
+            <span>✎</span><b>Writing & Summary</b>
+            <small>Draft, rewrite and summarize</small>
+          </button>
+          <button class="capability panel" data-mode="research">
+            <span>⌕</span><b>Research Assistant</b>
+            <small>Analyze and check information</small>
+          </button>
+          <button class="capability panel" data-mode="creative">
+            <span>✧</span><b>Creative Intelligence</b>
+            <small>Ideas and creative writing</small>
+          </button>
+        </div>
+      </section>
+
+      <section class="assistant-section panel" id="assistant">
+        <header class="chat-heading">
+          <div class="assistant-avatar">J</div>
+          <div class="chat-title">
+            <p class="eyebrow">SECURE AI SESSION</p>
+            <h2>Talk to JARVIS</h2>
+            <small id="chatStatus">Checking server connection...</small>
+          </div>
+          <button class="secondary-button" id="clearChat">New chat</button>
+        </header>
+
+        <div class="mode-bar">
+          <label for="aiMode">AI MODE</label>
+          <select id="aiMode">
+            <option value="conversation">General conversation</option>
+            <option value="reasoning">Reasoning and planning</option>
+            <option value="coding">Coding and debugging</option>
+            <option value="math">Mathematics</option>
+            <option value="translation">Translation</option>
+            <option value="writing">Writing and summarization</option>
+            <option value="research">Research and fact-checking</option>
+            <option value="creative">Creative writing and ideas</option>
+          </select>
+          <select id="chatLanguage" aria-label="Preferred response language">
+            <option value="auto">Auto language</option>
+            <option value="English">English</option>
+            <option value="Hindi">हिन्दी</option>
+            <option value="Hinglish">Hinglish</option>
+          </select>
+        </div>
+
+        <div class="chat-messages" id="chatMessages" aria-live="polite">
+          <div class="message assistant-message">
+            <div class="message-avatar">J</div>
+            <div class="message-bubble">
+              Hello, Commander. I am JARVIS, your AI assistant.
+              Ask me anything in Hindi, English or Hinglish.
+              Select an intelligence mode and let's begin.
+            </div>
+          </div>
+        </div>
+
+        <form class="chat-form" id="chatForm">
+          <textarea id="chatInput" rows="1" maxlength="4000"
+            placeholder="Ask JARVIS anything..."
+            aria-label="Message JARVIS" required></textarea>
+          <button type="button" class="icon-button" id="micButton"
+            aria-label="Voice input" title="Voice input">🎙</button>
+          <button type="submit" class="send-button" id="sendButton">
+            Send ↗
+          </button>
+        </form>
+        <div class="chat-footer">
+          <span>AI can make mistakes. Verify important information.</span>
+          <button id="voiceToggle" type="button" aria-pressed="false">
+            🔊 Voice off
+          </button>
+        </div>
+      </section>
+
+      <footer>J.A.R.V.I.S. AI <span>•</span> JAVASCRIPT POWERED</footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
